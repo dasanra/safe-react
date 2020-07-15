@@ -51,11 +51,13 @@ const instantiateMasterCopies = async () => {
 // ONLY USED IN TEST ENVIRONMENT
 const createMasterCopies = async () => {
   const web3 = getWeb3()
+  const networkId = await getNetworkIdFrom(web3)
+
   const accounts = await web3.eth.getAccounts()
   const userAccount = accounts[0]
 
-  const ProxyFactory = getCreateProxyFactoryContract(web3)
-  proxyFactoryMaster = await ProxyFactory.new({ from: userAccount, gas: '5000000' })
+  proxyFactoryMaster = getCreateProxyFactoryContract(web3, networkId)
+  // proxyFactoryMaster = await ProxyFactory.new({ from: userAccount, gas: '5000000' })
 
   const GnosisSafe = getGnosisSafeContract(web3)
   safeMaster = await GnosisSafe.new({ from: userAccount, gas: '7000000' })

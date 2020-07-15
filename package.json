@@ -58,7 +58,12 @@
       "!src/**/test/**/*",
       "!src/**/assets/**",
       "!src/config/**/*"
-    ]
+    ],
+    "setupFiles": [
+      "<rootDir>/config/jest/LocalStorageMock.js",
+      "<rootDir>/config/jest/Web3Mock.js"
+    ],
+    "setupFilesAfterEnv": ["<rootDir>/config/jest/jest.setup.js"]
   },
   "productName": "Safe Multisig",
   "build": {
