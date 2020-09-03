@@ -4,7 +4,7 @@ name: Build/Release Desktop app
 on:
   push:
     branches:
-      - master
+      - electron-test
 
 env:
   REACT_APP_BLOCKNATIVE_KEY: ${{ secrets.REACT_APP_BLOCKNATIVE_KEY }}
