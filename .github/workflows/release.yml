@@ -2,9 +2,7 @@ name: Build/Release Desktop app
 
 # this will help you specify where to run
 on:
-  push:
-    branches:
-      - electron-test
+  workflow_dispatch
 
 env:
   REACT_APP_BLOCKNATIVE_KEY: ${{ secrets.REACT_APP_BLOCKNATIVE_KEY }}
